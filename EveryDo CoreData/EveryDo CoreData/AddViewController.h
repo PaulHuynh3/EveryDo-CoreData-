@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TodoObject+CoreDataClass.h"
+#import "AppDelegate.h"
 
 @interface AddViewController : UIViewController
+
+@property(nonatomic)TodoObject *todoObject;
+@property (nonatomic,weak) AppDelegate *appDelegate;
+@property (nonatomic) NSManagedObjectContext *managedObjectContext;
+
+
+- (IBAction)saveButton:(UIButton *)sender;
 
 @end

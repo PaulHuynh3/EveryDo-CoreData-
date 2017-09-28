@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *isCompleteLabel;
 
 
-
 @end
 
 
@@ -35,5 +34,25 @@
 
     // Configure the view for the selected state
 }
+
+-(void)setTodoObject:(TodoObject *)todoObject{
+
+    _todoObject = todoObject;
+    
+    int16_t number = todoObject.priorityNumber;
+    NSString *priorityNumber = [NSString stringWithFormat:@"%i",number];
+    self.priorityNumberLabel.text = priorityNumber;
+    
+    self.titleLabel.text = todoObject.title;
+    self.descriptionLabel.text = todoObject.todoDescription;
+    
+    bool complete = self.todoObject.isComplete;
+    NSString *boolString = [NSString stringWithFormat:@"%d",complete];
+    self.isCompleteLabel.text = boolString;
+    
+    
+}
+
+
 
 @end

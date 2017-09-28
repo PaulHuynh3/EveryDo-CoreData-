@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="233" id="caU-1u-pnc" customClass="DisplayTableViewCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="233" id="caU-1u-pnc" customClass="DisplayTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="233"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="caU-1u-pnc" id="kYv-Fw-Nyt">
@@ -67,10 +67,12 @@
                                             <outlet property="isCompleteLabel" destination="Q7S-zC-QDP" id="3XC-Gf-a5B"/>
                                             <outlet property="priorityNumberLabel" destination="KR4-xF-bcH" id="2cw-gk-8mm"/>
                                             <outlet property="titleLabel" destination="y8b-0x-h8Z" id="eCy-Hf-r6K"/>
-                                            <segue destination="vUn-gr-2MY" kind="show" identifier="addTodoSegue" id="wd4-xa-izk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="85n-ND-D71" id="ldx-FU-GN9"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +83,13 @@
                             <constraint firstItem="Z6Z-aR-IIy" firstAttribute="top" secondItem="hqW-yi-HKs" secondAttribute="bottom" id="mhS-WK-z4k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tOJ-Ez-zqo"/>
+                    <navigationItem key="navigationItem" id="tOJ-Ez-zqo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="x3x-RJ-rUj">
+                            <connections>
+                                <segue destination="vUn-gr-2MY" kind="show" identifier="addTodoSegue" id="uHD-gK-zc7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hqW-yi-HKs" id="l3M-w9-5qk"/>
                     </connections>
@@ -123,6 +131,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbV-Gn-Ez8">
+                                <rect key="frame" x="121" y="542" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="vUn-gr-2MY" eventType="touchUpInside" id="xaC-eZ-v37"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Priority Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LEt-KW-hyv">
                                 <rect key="frame" x="42" y="133" width="291" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,10 +149,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="completeTextfield" destination="OSX-By-fdV" id="Jy4-Jm-se7"/>
+                        <outlet property="descriptionTextfield" destination="VdF-75-KuG" id="rzP-pD-gBF"/>
+                        <outlet property="priorityNumberTextfield" destination="LEt-KW-hyv" id="hEk-BG-39t"/>
+                        <outlet property="titleTextfield" destination="Oni-yQ-c9H" id="hdR-Au-r1n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIX-hu-Es6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="68"/>
+            <point key="canvasLocation" x="1448.8" y="67.916041979010501"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q71-nh-L6l">

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TodoObject+CoreDataClass.h"
 
 @interface DisplayTableViewCell : UITableViewCell
+
+@property (nonatomic) TodoObject *todoObject;
+
+
 
 @end
